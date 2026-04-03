@@ -71,7 +71,7 @@ Make sure you have Python installed
 Install dependency:
 pip install tabulate
 Run the program:
-python main.py
+Run the game by executing: python main.py
 
 Notes
 
