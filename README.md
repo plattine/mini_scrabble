@@ -26,7 +26,9 @@ How it works
 
 Input format
 
-COLUMN:ROW:WORD,DIRECTION Example: A:1:HELLO,RIGHT
+COLUMN:ROW:WORD,DIRECTION 
+
+-   Example: A:1:HELLO,RIGHT
 
 -   The program validates:
     -   If the word exists in the dictionary
