@@ -29,7 +29,8 @@ If the placement is valid on the board
 If the player has the required letters
 If valid:
 The word is placed on the board
-The player earns a point
+The player earns a point for each valid move
+The game ends when the player reaches 3 points
 New letters are generated
 
 Tech & Concepts
@@ -74,4 +75,6 @@ python main.py
 
 Notes
 
-This project was developed as a learning exercise to practice Python and problem-solving through building a small game.
+This project was developed as part of the CS50P (Introduction to Programming with Python) course.
+
+It was created as a learning exercise to practice Python fundamentals and problem-solving through building a small game.

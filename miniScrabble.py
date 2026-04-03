@@ -13,39 +13,40 @@ def main():
     # Prints seven random letters
     letters = letters_generator()
     points = 0
-#    if points <= 12:
+    
     while True:
-        print(f"Your random letters are: \033[93m{' '.join(letters)}\033[0m")
-        print("Use following format for your input: COLUMN:ROW:LETTERS,DIRECTION\nExample: A:1:DAN,RIGHT\n" \
-        "The input is case-insensitive.\nDirection can be only 'RIGHT' or 'DOWN'\nType 'exit' to quit the game." )
+        if points < 3:
+            print(f"Your random letters are: \033[93m{' '.join(letters)}\033[0m")
+            print("Use following format for your input: COLUMN:ROW:LETTERS,DIRECTION\nExample: A:1:DAN,RIGHT\n" \
+            "The input is case-insensitive.\nDirection can be only 'RIGHT' or 'DOWN'\nType 'exit' to quit the game." )
 
-        user_input = input("Enter coordinates and direction: ").upper()
-        if user_input == "EXIT":
-            sys.exit("Thank you for playing.")
+            user_input = input("Enter coordinates and direction: ").upper()
+            if user_input == "EXIT":
+                sys.exit("Thank you for playing.")
 
-        clear_screen()
+            clear_screen()
 
-        coordinates = convert_coordinates(user_input)
+            coordinates = convert_coordinates(user_input)
 
-        success = play_turn(coordinates, letters)
+            success = play_turn(coordinates, letters)
 
-        if success == "invalid_word":
-            tab_grid = tabulate(grid_list, headers="firstrow", tablefmt="double_grid")
-            print(tab_grid)
-            print("\033[91mNot a valid word.\033[0m")
-        elif success is False:
-            tab_grid = tabulate(grid_list, headers="firstrow", tablefmt="double_grid")
-            print(tab_grid)
-            print("\033[91mInvalid move. Try again.\033[0m")
+            if success == "invalid_word":
+                tab_grid = tabulate(grid_list, headers="firstrow", tablefmt="double_grid")
+                print(tab_grid)
+                print("\033[91mNot a valid word.\033[0m")
+            elif success is False:
+                tab_grid = tabulate(grid_list, headers="firstrow", tablefmt="double_grid")
+                print(tab_grid)
+                print("\033[91mInvalid move. Try again.\033[0m")
 
-        elif success:
-            points = points + 1
-            letters = letters_generator()
-            print(tabulate(grid_list, headers="firstrow", tablefmt="double_grid"))
-            print("\033[92mGreat move! You've got new letters!\033[0m")
-            print(f"\033[96mYou have {points} points.\033[0m")
-#    else:
-#        sys.exit("Congratulations, you've reached 12 points!")
+            elif success:
+                points = points + 1
+                letters = letters_generator()
+                print(tabulate(grid_list, headers="firstrow", tablefmt="double_grid"))
+                print("\033[92mGreat move! You've got new letters!\033[0m")
+                print(f"\033[96mYou have {points} points.\033[0m")
+        else:
+            sys.exit("Congratulations, you've reached 3 points!")
 
 
 # Checks operating system and decides which command to use to clear screen.
